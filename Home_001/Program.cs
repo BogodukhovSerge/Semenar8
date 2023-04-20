@@ -13,64 +13,60 @@ Nach();
 
 void Nach()
 {
-    int rows = Bass("rows");
-    int columns = Bass("columns");
 
-    double[,] matrix = GetArrayDouble(rows, columns, -5, 10);
+    int[,] matrix = new int[5,6];
+    GetArray(matrix);
     PrintMatrix(matrix);
+    SorToTabl(matrix);
     Console.WriteLine();
-    GetSredArifNym(matrix);
+    PrintMatrix(matrix);
+    
 }
 
-int Bass(string sms)
-{
-    System.Console.WriteLine(sms);
-    String readInput = System.Console.ReadLine();
-    int result = int.Parse(readInput);
-    return result;
-}
 
-double[,] GetArrayDouble(int rows, int colums, int min, int max)
+void GetArray(int[,] matrix)
 {
-    double[,] array = new double[rows, colums];
-    var rand = new Random();
-    for (int i = 0; i < rows; i++)
+    for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        for (int j = 0; j < colums; j++)
+        for (int j = 0; j  < matrix.GetLength(1); j++)
         {
-            array[i,j] = rand.Next(min, max + 1);
+            matrix[i,j] = new Random().Next(-5, 7);
         }
     
     }
-    return array;
 
 }
 
-void PrintMatrix(double[,] matrix)
+void PrintMatrix(int[,] matrix)
 {
-    for (int m = 0; m < matrix.GetLength(0); m++)
+    for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        for (int n = 0; n  < matrix.GetLength(1); n++)
+        for (int j = 0; j  < matrix.GetLength(1); j++)
         {
-            System.Console.Write($"{matrix[m, n]} ");
+            System.Console.Write($"{matrix[i, j]} ");
 
         }
         System.Console.WriteLine();
     }
 }
 
-// void GetSredArifNym(double[,] matrix)
-// {
-//     for (int j = 0; j < matrix.GetLength(1); j++)
-//     {
-//         int count = 0;
-//         double res = 0;
-//         for (int i = 0; i < matrix.GetLength(0); i++)
-//         {
-//             res = res + matrix[i,j];
-//             count++;
-//         }
-//         res = res / count;
-//         Console.WriteLine($"{j+1} {res}");
-//     }
-// }
+void SorToTabl(int[,] matrix)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            for (int n = 0; n < matrix.GetLength(1) - 1; n++)
+            {
+                if (matrix[i,n] < matrix[i,n + 1])
+                {
+                    int num = 1;
+                    num = matrix[i,n + 1];
+                    matrix[i,n + 1] = matrix[i,n];
+                    matrix[i,n] = num;
+                }
+            }
+        }
+    }
+}
+
