@@ -10,7 +10,11 @@
 // наименьшей суммой элементов: 1 строка
 
 
-// int[,] array = new int[m,n]
+int[,] array = new int[m, n];
+CreatArray(array);
+MinSumStrok(array);
+Consoie.WriteLine($"{minSum} - Stroka s naimenshey sum ({SumStrok})");
+
 
 
 int InPutNum(string[,] InPut)
