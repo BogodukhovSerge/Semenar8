@@ -10,17 +10,17 @@
 // наименьшей суммой элементов: 1 строка
 
 
-int[,] array = new int[m, n];
+int[,] array = new int[i, j];
 CreatArray(array);
 MinSumStrok(array);
-Consoie.WriteLine($"{minSum} - Stroka s naimenshey sum ({SumStrok})");
+Console.WriteLine($"{MinSumStrok} - Stroka s naimenshey sum ");
 
 
 
 int InPutNum(string[,] InPut)
 {
     Console.Write(InPut);
-    int num = Convert.ToInt32(Consolr.ReadLine());
+    int num = Convert.ToInt32(Console.ReadLine());
     return num;
 }
 
@@ -32,7 +32,7 @@ void CreatArray(int[,] array)
     {
             for (int j = 0; j < array.GetLength(1); j++)
             {
-                array[i,j] = new Random.Next(renge);
+                array[i,j] = new Random().Next();
             }
 
     }
