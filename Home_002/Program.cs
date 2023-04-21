@@ -43,3 +43,19 @@ int SumStrokElement(int[,] array, int i)
     }
     return SumStrok;
 }
+
+int MinSumStrok(int[,] array)
+{
+    int minSum = 0;
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        int tempSumStrok = SumStrokElement(array, i);
+        if (minSum > tempSumStrok)
+        {
+            minSum = tempSumStrok;
+
+        }
+
+    }
+    return minSum;
+}
