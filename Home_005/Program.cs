@@ -6,28 +6,28 @@
 // 11 16 15 06
 // 10 09 08 07
 
-int n = 4;
-int[,] sqareMatrix = new int[n, n];
+int k = 5;
+int[,] speralMatrix = new int[k, k];
 
 int temp = 1;
 int i = 0;
 int j = 0;
 
-while (temp <= sqareMatrix.GetLength(0) * sqareMatrix.GetLength(1))
+while (temp <= speralMatrix.GetLength(0) * speralMatrix.GetLength(1))
 {
-  sqareMatrix[i, j] = temp;
+  speralMatrix[i, j] = temp;
   temp++;
-  if (i <= j + 1 && i + j < sqareMatrix.GetLength(1) - 1)
+  if (i <= j + 1 && i + j < speralMatrix.GetLength(1) - 1)
     j++;
-  else if (i < j && i + j >= sqareMatrix.GetLength(0) - 1)
+  else if (i < j && i + j >= speralMatrix.GetLength(0) - 1)
     i++;
-  else if (i >= j && i + j > sqareMatrix.GetLength(1) - 1)
+  else if (i >= j && i + j > speralMatrix.GetLength(1) - 1)
     j--;
   else
     i--;
 }
 
-WriteArray(sqareMatrix);
+WriteArray(speralMatrix);
 
 void WriteArray (int[,] array)
 {
