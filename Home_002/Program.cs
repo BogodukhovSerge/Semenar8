@@ -9,15 +9,21 @@
 // Программа считает сумму элементов в каждой строке и выдаёт номер строки с 
 // наименьшей суммой элементов: 1 строка
 
+Console.Write("Введите размер массива m на n и диапазон случайных значений: ");
+int m = InPutNum("Введите m: ");
+int n = InPutNum("Введите n: ");
+//int ray = InPutNum("Введите диапазон: от -5 до 10");
 
-int[,] array = new int[i, j];
+int[,] array = new int[m, n];
 CreatArray(array);
+WriteArray(array);
 MinSumStrok(array);
-Console.WriteLine($"{MinSumStrok} - Stroka s naimenshey sum ");
+Console.WriteLine($"\n{MinSumStrok} - Stroka s naimenshey sum ");
 
 
 
-int InPutNum(string[,] InPut)
+
+int InPutNum(string InPut)
 {
     Console.Write(InPut);
     int num = Convert.ToInt32(Console.ReadLine());
@@ -32,7 +38,7 @@ void CreatArray(int[,] array)
     {
             for (int j = 0; j < array.GetLength(1); j++)
             {
-                array[i,j] = new Random().Next();
+                array[i,j] = new Random().Next(-5, 10);
             }
 
     }
@@ -57,9 +63,21 @@ int MinSumStrok(int[,] array)
         if (minSum > tempSumStrok)
         {
             minSum = tempSumStrok;
+            minSum = i;
 
         }
 
     }
     return minSum;
+}
+
+void WriteArray (int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i,j]);
+        }
+    }
 }
